@@ -4,21 +4,28 @@ import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.web.bind.annotation.PostMapping;
         import org.springframework.web.bind.annotation.RequestBody;
         import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 @RestController
-public class ProductController {
+public class EmployeeController {
     @Autowired
-    public ProductService productService;
+    public EmployeeService employeeService;
 
-    public ProductController(ProductService ps){
-        this.productService = ps;
+    public EmployeeController(EmployeeService ps){
+        this.employeeService = ps;
     }
     @GetMapping("/status")
     String hello(){
-        return "HEllo, World!";
+        return "HEll o, World!";
     }
     @PostMapping("/register")
-    Products register(@RequestBody Products newUser){
-        return productService.register(newUser);
+    Employees register(@RequestBody Employees newUser){
+        return employeeService.register(newUser);
     }
+    @GetMapping("/findallorders")
+    public List<Employees> findallorders(){
+        return employeeService.repo.findAll();
+    }
+
+
 }

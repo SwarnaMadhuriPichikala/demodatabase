@@ -3,12 +3,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductService{
-
+public class EmployeeService{
     @Autowired
-    Productrepository repo;
-
-    Products register(Products newUser){
+    Employeerepository repo;
+    Employees register(Employees newUser){
         repo.save(newUser);
         return newUser;
     }
